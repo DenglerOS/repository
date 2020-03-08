@@ -1,0 +1,10 @@
+services:
+  - name: udhcpc
+    image: pwfoo/udhcpc:latest
+    net: host
+    binds:
+    - /etc/resolv.conf:/etc/resolv.conf    
+    capabilities:
+    - CAP_NET_ADMIN
+    - CAP_NET_RAW
+    - CAP_SYS_ADMIN
