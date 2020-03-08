@@ -1,0 +1,9 @@
+services:
+  - name: sshd
+    image: pwfoo/sshd:latest
+    net: host
+    pid: host
+    capabilities:
+    - all
+    binds:
+    - /:/host
