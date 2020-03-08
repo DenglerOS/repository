@@ -1,0 +1,8 @@
+services:
+  - name: mdevd
+    image: pwfoo/os-mdevd:latest
+    capabilities:
+    - all
+    binds:
+    - /lib/modules:/lib/modules
+    - /lib/firmware:/lib/firmware
