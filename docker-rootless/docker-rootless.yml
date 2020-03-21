@@ -1,0 +1,19 @@
+services:
+  - name: docker
+    image: docker:19.03.8-dind-rootless
+    capabilities:
+     - all
+    net: host
+    binds:
+     - /run/docker/cgroup:/sys/fs/cgroup
+     - /etc/resolv.conf:/etc/resolv.conf
+     - /var/lib/docker:/var/lib/docker
+     - /lib/modules:/lib/modules
+     - /etc/docker/daemon.json:/etc/docker/daemon.json
+    command: ["--experimental"]
+
+files:
+  - path: var/lib/docker
+    directory: true
+  - path: etc/docker/daemon.json
+    contents: '{"debug": true}'
